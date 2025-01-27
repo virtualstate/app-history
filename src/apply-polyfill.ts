@@ -11,7 +11,7 @@ export function applyPolyfill(options: NavigationPolyfillOptions = DEFAULT_POLYF
 export function shouldApplyPolyfill(navigation = getNavigation()) {
   return (
       navigation !== globalNavigation &&
-      !globalNavigation &&
+      !Object.hasOwn(globalThis, 'navigation') &&
       typeof window !== "undefined"
   );
 }
